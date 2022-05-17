@@ -26,14 +26,19 @@ Array.prototype.twoSum = function() {
 
 
 Array.prototype.transpose = function() {
-    let transposed = [];
+    let transposed = Array.from(
+        { length: this[0].length },
+        () => Array.from({ length: this.length })
+    );
 
     // #so we iterate through the Array, and in each miniarray, iterate again
     // #push in the transposed version to miniArraytransposed
     //push  that into transposed
     for (let i=0; i<this.length; i++) {
         for (let j=0; j<this[0].length; j++) {
-            
+            transposed[j][i] = this[i][j];
         }
     }
+
+    return transposed
 }
